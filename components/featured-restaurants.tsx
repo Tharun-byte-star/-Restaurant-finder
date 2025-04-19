@@ -8,7 +8,7 @@ export default function FeaturedRestaurants() {
       <div className="flex overflow-x-auto pb-4 -mx-4 px-4 gap-6 scrollbar-hide">
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="min-w-[280px] max-w-[280px]">
-            <RestaurantCard />
+            <RestaurantCard index={i} />
           </div>
         ))}
       </div>
@@ -16,7 +16,7 @@ export default function FeaturedRestaurants() {
       <Button
         size="icon"
         variant="outline"
-        className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full hidden md:flex"
+        className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full hidden md:flex border-primary/30 text-primary hover:bg-primary hover:text-white"
       >
         <ChevronLeft className="h-4 w-4" />
         <span className="sr-only">Previous</span>
@@ -25,7 +25,7 @@ export default function FeaturedRestaurants() {
       <Button
         size="icon"
         variant="outline"
-        className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full hidden md:flex"
+        className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full hidden md:flex border-primary/30 text-primary hover:bg-primary hover:text-white"
       >
         <ChevronRight className="h-4 w-4" />
         <span className="sr-only">Next</span>

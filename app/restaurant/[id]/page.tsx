@@ -10,12 +10,12 @@ import SimilarRestaurants from "@/components/similar-restaurants"
 
 export default function RestaurantPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#fffaf0]">
       {/* Back Navigation - Applying User Control and Freedom */}
       <div className="container py-4">
         <Link
           href="/"
-          className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
+          className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary"
         >
           <ArrowLeft className="mr-1 h-4 w-4" />
           Back to search results
@@ -26,7 +26,7 @@ export default function RestaurantPage() {
       <div className="relative h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30 z-10" />
         <img
-          src="/placeholder.svg?height=400&width=1200"
+          src="https://images.unsplash.com/photo-1514516345957-556ca7c90a34?w=1200&h=400&fit=crop"
           alt="Restaurant interior"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -75,21 +75,21 @@ export default function RestaurantPage() {
           <div className="flex-1">
             {/* Quick Info - Applying Vital Few, Chunking */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <div className="flex items-center p-4 border rounded-lg">
+              <div className="flex items-center p-4 border rounded-lg bg-white">
                 <MapPin className="h-5 w-5 text-primary mr-3" />
                 <div>
                   <h3 className="text-sm font-medium">Location</h3>
                   <p className="text-sm text-muted-foreground">123 Main Street, City</p>
                 </div>
               </div>
-              <div className="flex items-center p-4 border rounded-lg">
+              <div className="flex items-center p-4 border rounded-lg bg-white">
                 <Clock className="h-5 w-5 text-primary mr-3" />
                 <div>
                   <h3 className="text-sm font-medium">Hours</h3>
                   <p className="text-sm text-muted-foreground">11:00 AM - 10:00 PM</p>
                 </div>
               </div>
-              <div className="flex items-center p-4 border rounded-lg">
+              <div className="flex items-center p-4 border rounded-lg bg-white">
                 <Calendar className="h-5 w-5 text-primary mr-3" />
                 <div>
                   <h3 className="text-sm font-medium">Reservations</h3>
@@ -99,29 +99,29 @@ export default function RestaurantPage() {
             </div>
 
             {/* Tabs - Applying Mental Models, Consistency */}
-            <Tabs defaultValue="about">
+            <Tabs defaultValue="about" className="bg-white p-6 rounded-lg">
               <TabsList className="w-full justify-start border-b rounded-none bg-transparent h-auto p-0">
                 <TabsTrigger
                   value="about"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
                 >
                   About
                 </TabsTrigger>
                 <TabsTrigger
                   value="menu"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
                 >
                   Menu
                 </TabsTrigger>
                 <TabsTrigger
                   value="reviews"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
                 >
                   Reviews
                 </TabsTrigger>
                 <TabsTrigger
                   value="photos"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
                 >
                   Photos
                 </TabsTrigger>
@@ -141,13 +141,27 @@ export default function RestaurantPage() {
                   <div>
                     <h3 className="text-lg font-bold mb-2">Features</h3>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline">Outdoor Seating</Badge>
-                      <Badge variant="outline">Takeout</Badge>
-                      <Badge variant="outline">Delivery</Badge>
-                      <Badge variant="outline">Reservations</Badge>
-                      <Badge variant="outline">Wheelchair Accessible</Badge>
-                      <Badge variant="outline">Full Bar</Badge>
-                      <Badge variant="outline">Private Dining</Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Outdoor Seating
+                      </Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Takeout
+                      </Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Delivery
+                      </Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Reservations
+                      </Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Wheelchair Accessible
+                      </Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Full Bar
+                      </Badge>
+                      <Badge variant="outline" className="border-primary/30">
+                        Private Dining
+                      </Badge>
                     </div>
                   </div>
 
@@ -182,10 +196,20 @@ export default function RestaurantPage() {
 
               <TabsContent value="photos" className="pt-6">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {Array.from({ length: 9 }).map((_, i) => (
+                  {[
+                    "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1505932794267-0f67586e200d?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1458644267420-66bc8a5f21e4?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1560611588-163f49a6cbe9?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=300&h=200&fit=crop",
+                    "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300&h=200&fit=crop",
+                  ].map((url, i) => (
                     <img
                       key={i}
-                      src={`/placeholder.svg?height=200&width=300&text=Photo ${i + 1}`}
+                      src={url || "/placeholder.svg"}
                       alt={`Restaurant photo ${i + 1}`}
                       className="w-full h-48 object-cover rounded-md"
                     />
@@ -198,7 +222,7 @@ export default function RestaurantPage() {
           {/* Sidebar - Applying Scarcity, Call to Action */}
           <div className="w-full lg:w-80 shrink-0">
             <div className="sticky top-20">
-              <div className="border rounded-lg p-6 mb-6">
+              <div className="border rounded-lg p-6 mb-6 bg-white">
                 <h3 className="text-lg font-bold mb-4">Make a Reservation</h3>
                 <div className="space-y-4">
                   <div>
@@ -234,7 +258,7 @@ export default function RestaurantPage() {
                 </div>
               </div>
 
-              <div className="border rounded-lg p-6">
+              <div className="border rounded-lg p-6 bg-white">
                 <h3 className="text-lg font-bold mb-4">Similar Restaurants</h3>
                 <SimilarRestaurants />
               </div>

@@ -3,6 +3,26 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 
 export default function RestaurantReviews() {
+  // Sample reviewer names
+  const reviewers = ["John D.", "Sarah M.", "Michael T."]
+
+  // Sample review texts
+  const reviewTexts = [
+    "Absolutely loved the authentic Italian flavors! The pasta was cooked to perfection and the service was impeccable. Will definitely be coming back soon with friends and family.",
+    "Great atmosphere and delicious food. The wine selection perfectly complemented our meal. Prices are reasonable for the quality you get.",
+    "Decent food but the service was a bit slow. The ambiance is nice though, and they were very accommodating of our dietary restrictions.",
+  ]
+
+  // Sample times
+  const times = ["2 weeks ago", "1 month ago", "3 days ago"]
+
+  // Sample avatar images
+  const avatarImages = [
+    "https://randomuser.me/api/portraits/men/32.jpg",
+    "https://randomuser.me/api/portraits/women/44.jpg",
+    "https://randomuser.me/api/portraits/men/75.jpg",
+  ]
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
@@ -64,15 +84,15 @@ export default function RestaurantReviews() {
             <div className="flex justify-between mb-2">
               <div className="flex items-center gap-2">
                 <Avatar>
-                  <AvatarImage src={`/placeholder.svg?height=40&width=40&text=User`} />
-                  <AvatarFallback>U{i}</AvatarFallback>
+                  <AvatarImage src={avatarImages[i] || "/placeholder.svg"} />
+                  <AvatarFallback>{reviewers[i].charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <div className="font-medium">User Name</div>
-                  <div className="text-xs text-muted-foreground">12 reviews</div>
+                  <div className="font-medium">{reviewers[i]}</div>
+                  <div className="text-xs text-muted-foreground">{12 - i * 3} reviews</div>
                 </div>
               </div>
-              <div className="text-sm text-muted-foreground">2 weeks ago</div>
+              <div className="text-sm text-muted-foreground">{times[i]}</div>
             </div>
 
             <div className="flex mb-2">
@@ -84,18 +104,14 @@ export default function RestaurantReviews() {
               ))}
             </div>
 
-            <p className="text-sm mb-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac dolor libero. Nulla at metus sed
-              lacus congue luctus vel non mauris. Vestibulum non mi quam. Curabitur dictum, nulla id tempor elementum,
-              purus sapien vulputate arcu, nec finibus augue velit at nibh.
-            </p>
+            <p className="text-sm mb-3">{reviewTexts[i]}</p>
 
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm" className="h-8 gap-1">
+              <Button variant="ghost" size="sm" className="h-8 gap-1 text-primary hover:bg-primary/10">
                 <ThumbsUp className="h-4 w-4" />
-                <span>Helpful (12)</span>
+                <span>Helpful ({12 - i * 3})</span>
               </Button>
-              <Button variant="ghost" size="sm" className="h-8 gap-1">
+              <Button variant="ghost" size="sm" className="h-8 gap-1 hover:bg-primary/10">
                 <Flag className="h-4 w-4" />
                 <span>Report</span>
               </Button>
@@ -103,7 +119,7 @@ export default function RestaurantReviews() {
           </div>
         ))}
 
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className="w-full border-primary/30 text-primary hover:bg-primary hover:text-white">
           Load More Reviews
         </Button>
       </div>

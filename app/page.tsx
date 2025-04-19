@@ -9,11 +9,16 @@ import { Badge } from "@/components/ui/badge"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#fffaf0]">
       {/* Header - Applying Primality, Visibility of System Status */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
+            <img
+              src="https://img.icons8.com/color/48/000000/restaurant.png"
+              alt="TasteFinder Logo"
+              className="h-8 w-8"
+            />
             <span className="text-xl font-bold text-primary">TasteFinder</span>
           </Link>
 
@@ -23,15 +28,15 @@ export default function HomePage() {
             <Input
               type="search"
               placeholder="Search restaurants, cuisines, or locations..."
-              className="w-full pl-8 bg-background"
+              className="w-full pl-8 bg-white border-[#e0e0e0]"
             />
           </div>
 
           <nav className="flex items-center gap-4">
-            <Link href="/favorites" className="text-sm font-medium hover:underline">
+            <Link href="/favorites" className="text-sm font-medium hover:text-primary">
               Favorites
             </Link>
-            <Link href="/recent" className="text-sm font-medium hover:underline">
+            <Link href="/recent" className="text-sm font-medium hover:text-primary">
               Recent
             </Link>
             <Button>Sign In</Button>
@@ -43,7 +48,7 @@ export default function HomePage() {
       <section className="relative h-[500px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10" />
         <img
-          src="/placeholder.svg?height=500&width=1200"
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=500&fit=crop"
           alt="Delicious food spread"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -72,34 +77,34 @@ export default function HomePage() {
           </Button>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Italian
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Japanese
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Mexican
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Vegetarian
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Open Now
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Delivery
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             Outdoor Seating
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
+            $
+          </Badge>
+          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10 border-primary/30">
             $$
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
-            $$$
-          </Badge>
-          <Badge variant="secondary" className="cursor-pointer">
+          <Badge variant="secondary" className="cursor-pointer bg-accent text-white">
             + More Filters
           </Badge>
         </div>
@@ -137,7 +142,7 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 9 }).map((_, i) => (
-                <RestaurantCard key={i} />
+                <RestaurantCard key={i} index={i} />
               ))}
             </div>
 
@@ -174,32 +179,41 @@ export default function HomePage() {
       </main>
 
       {/* Help Section - Applying User Support Principles */}
-      <section className="bg-muted py-12">
+      <section className="bg-[#f8f4e5] py-12">
         <div className="container">
           <h2 className="text-2xl font-bold mb-6 text-center">Need Help Finding the Perfect Spot?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-card p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold mb-2">Restaurant Recommendations</h3>
               <p className="text-muted-foreground mb-4">
                 Get personalized suggestions based on your preferences and past visits
               </p>
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+              >
                 Get Recommendations
               </Button>
             </div>
-            <div className="bg-card p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold mb-2">Dietary Restrictions</h3>
               <p className="text-muted-foreground mb-4">Find restaurants that cater to your specific dietary needs</p>
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+              >
                 Set Preferences
               </Button>
             </div>
-            <div className="bg-card p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold mb-2">Special Occasions</h3>
               <p className="text-muted-foreground mb-4">
                 Discover perfect venues for birthdays, anniversaries, and other events
               </p>
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+              >
                 Plan an Event
               </Button>
             </div>
@@ -208,32 +222,39 @@ export default function HomePage() {
       </section>
 
       {/* Footer - Applying Closure, Completeness */}
-      <footer className="bg-background border-t py-12">
+      <footer className="bg-[#2c3e50] text-white py-12">
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">TasteFinder</h3>
-            <p className="text-muted-foreground">Discover and enjoy the best restaurants in your area.</p>
+            <h3 className="font-bold mb-4 flex items-center">
+              <img
+                src="https://img.icons8.com/color/48/000000/restaurant.png"
+                alt="TasteFinder Logo"
+                className="h-6 w-6 mr-2"
+              />
+              TasteFinder
+            </h3>
+            <p className="text-gray-300">Discover and enjoy the best restaurants in your area.</p>
           </div>
           <div>
             <h3 className="font-bold mb-4">Explore</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Top Rated
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   New Arrivals
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Cuisines
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Special Offers
                 </Link>
               </li>
@@ -243,22 +264,22 @@ export default function HomePage() {
             <h3 className="font-bold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Partners
                 </Link>
               </li>
@@ -268,30 +289,30 @@ export default function HomePage() {
             <h3 className="font-bold mb-4">Support</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="#" className="text-gray-300 hover:text-white">
                   Accessibility
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="container mt-8 pt-8 border-t">
-          <p className="text-center text-muted-foreground">© 2025 TasteFinder. All rights reserved.</p>
+        <div className="container mt-8 pt-8 border-t border-gray-700">
+          <p className="text-center text-gray-400">© 2025 TasteFinder. All rights reserved.</p>
         </div>
       </footer>
     </div>
